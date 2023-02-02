@@ -1,0 +1,15 @@
+int a;
+int b; 
+a := 1;
+a := 0;   
+b := 10;
+lambda f;
+f := fun c -> a + b;
+b := 5;
+int x; 
+x := f b; 
+
+Comp(Declare (Int_Type, "a")
+    Comp(Declare (Int_Type, "b"), Comp (Assg ("a", Number 1),
+                Comp (Assg ("a", Number 0),
+                Comp (Assg ("b", Number 10), Comp(Declare (Lambda_Type, "f"), Comp (Assg ("f", Fun ("c", Plus (Var "a", Var "b")))), Comp (Assg ("b", Number 5)), Comp(Declare (Int_Type, "x")), 
